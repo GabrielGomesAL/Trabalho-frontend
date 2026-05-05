@@ -1,4 +1,4 @@
-# Gestao de Clientes - React
+# Trabalho Frontend - Gestao de Clientes
 
 Aplicacao web em React desenvolvida para simular um fluxo real de frontend com
 navegacao, formulario validado, listagem dinamica, estado compartilhado e
