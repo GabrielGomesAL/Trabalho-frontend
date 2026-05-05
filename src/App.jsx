@@ -1,11 +1,20 @@
+import { Navigate, Route, Routes } from "react-router-dom";
+import Layout from "./components/layout/Layout.jsx";
+import Cadastro from "./pages/Cadastro.jsx";
+import Home from "./pages/Home.jsx";
+import Listagem from "./pages/Listagem.jsx";
+import NaoEncontrada from "./pages/NaoEncontrada.jsx";
+
 export default function App() {
   return (
-    <main className="app-shell">
-      <section className="placeholder">
-        <span className="eyebrow">Projeto React</span>
-        <h1>Gestao de Clientes</h1>
-        <p>Aplicacao em construcao para cadastro, listagem e consumo de API.</p>
-      </section>
-    </main>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="cadastro" element={<Cadastro />} />
+        <Route path="listagem" element={<Listagem />} />
+        <Route path="inicio" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<NaoEncontrada />} />
+      </Route>
+    </Routes>
   );
 }
