@@ -1,5 +1,6 @@
 import { ArrowRight, Database, FormInput, Route } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useClientes } from "../context/ClientesContext.jsx";
 
 const highlights = [
   {
@@ -20,6 +21,8 @@ const highlights = [
 ];
 
 export default function Home() {
+  const { clientes, totalApi, totalCadastrados } = useClientes();
+
   return (
     <section className="home-page">
       <div className="hero-content">
@@ -33,6 +36,21 @@ export default function Home() {
           <span>Novo cadastro</span>
           <ArrowRight size={18} aria-hidden="true" />
         </Link>
+
+        <div className="summary-strip" aria-label="Resumo dos dados">
+          <span>
+            <strong>{clientes.length}</strong>
+            clientes no total
+          </span>
+          <span>
+            <strong>{totalCadastrados}</strong>
+            cadastrados localmente
+          </span>
+          <span>
+            <strong>{totalApi}</strong>
+            vindos da API
+          </span>
+        </div>
       </div>
 
       <div className="highlight-grid" aria-label="Resumo dos requisitos">
