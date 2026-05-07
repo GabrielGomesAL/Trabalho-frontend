@@ -42,7 +42,7 @@ Use estas tarefas no GitHub Projects. A sugestao e criar as colunas:
 - Exibir dados locais e dados da API.
 - Adicionar filtros por busca, origem e prioridade.
 
-### Aplicar estilização responsiva
+### Aplicar estilizacao responsiva
 
 - Criar CSS externo.
 - Organizar layout para desktop e mobile.
