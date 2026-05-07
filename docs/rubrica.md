@@ -36,4 +36,5 @@
 - Historico com commits granulares.
 - Mensagens descrevendo a evolucao do projeto.
 - Kanban sugerido em `docs/kanban.md`.
+- Scrum documentado em `docs/scrum.md`.
 - Repositorio pronto para ser publicado no GitHub.

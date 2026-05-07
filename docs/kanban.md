@@ -1,6 +1,7 @@
 # Kanban do projeto
 
-Use estas tarefas no GitHub Projects. A sugestao e criar as colunas:
+Use estas tarefas no GitHub Projects. As issues correspondentes ja foram
+criadas no repositorio. A sugestao e criar as colunas:
 `Backlog`, `Em desenvolvimento`, `Revisao` e `Concluido`.
 
 ## Concluido

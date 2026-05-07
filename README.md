@@ -64,6 +64,7 @@ src/
 
 - Commits separados por etapa de desenvolvimento.
 - Tarefas de Kanban sugeridas em `docs/kanban.md`.
+- Organizacao Scrum documentada em `docs/scrum.md`.
 - Checklist da rubrica em `docs/rubrica.md`.
 
 ## Rotas
