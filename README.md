@@ -63,6 +63,7 @@ src/
 ## Organizacao para entrega
 
 - Commits separados por etapa de desenvolvimento.
+- Branch de desenvolvimento documentada em `docs/branches.md`.
 - Tarefas de Kanban sugeridas em `docs/kanban.md`.
 - Organizacao Scrum documentada em `docs/scrum.md`.
 - Checklist da rubrica em `docs/rubrica.md`.
