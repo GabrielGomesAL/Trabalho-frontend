@@ -10,7 +10,7 @@ import {
 
 function formatarData(dataIso) {
   if (!dataIso) {
-    return "Importado da API";
+    return "Contato importado";
   }
 
   return new Intl.DateTimeFormat("pt-BR", {

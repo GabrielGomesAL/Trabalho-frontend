@@ -1,22 +1,22 @@
-import { ArrowRight, Database, FormInput, Route } from "lucide-react";
+import { ArrowRight, ClipboardList, Database, FormInput } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useClientes } from "../context/ClientesContext.jsx";
 
 const highlights = [
   {
-    icon: Route,
-    title: "Navegacao",
-    text: "Rotas com React Router para simular uma aplicacao real.",
+    icon: FormInput,
+    title: "Novos cadastros",
+    text: "Registre contatos, interesses e prioridades de atendimento.",
   },
   {
-    icon: FormInput,
-    title: "Cadastro",
-    text: "Formulario controlado com validacao e tratamento de eventos.",
+    icon: ClipboardList,
+    title: "Consulta rapida",
+    text: "Localize clientes por nome, empresa, cidade ou origem.",
   },
   {
     icon: Database,
-    title: "API REST",
-    text: "Dados externos consumidos e exibidos junto aos cadastros locais.",
+    title: "Base integrada",
+    text: "Acompanhe clientes cadastrados e contatos importados.",
   },
 ];
 
@@ -26,11 +26,11 @@ export default function Home() {
   return (
     <section className="home-page">
       <div className="hero-content">
-        <span className="eyebrow">Projeto Frontend</span>
-        <h1>Aplicacao React para cadastro e listagem de clientes</h1>
+        <span className="eyebrow">Gestao comercial</span>
+        <h1>Cadastro e listagem de clientes</h1>
         <p>
-          Sistema web com navegacao, validacao de formulario, estado compartilhado
-          entre paginas e integracao com API REST.
+          Organize contatos, registre novos clientes e acompanhe as informacoes
+          mais importantes em um so lugar.
         </p>
         <Link className="primary-action" to="/cadastro">
           <span>Novo cadastro</span>
@@ -48,12 +48,12 @@ export default function Home() {
           </span>
           <span>
             <strong>{totalApi}</strong>
-            vindos da API
+            importados
           </span>
         </div>
       </div>
 
-      <div className="highlight-grid" aria-label="Resumo dos requisitos">
+      <div className="highlight-grid" aria-label="Recursos da gestao de clientes">
         {highlights.map(({ icon: Icon, title, text }) => (
           <article className="feature-card" key={title}>
             <Icon size={22} aria-hidden="true" />
