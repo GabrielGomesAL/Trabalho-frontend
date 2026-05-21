@@ -3,7 +3,7 @@ const CLIENTES_URL = "https://jsonplaceholder.typicode.com/users";
 function normalizarClienteApi(usuario) {
   return {
     id: `api-${usuario.id}`,
-    origem: "API REST",
+    origem: "Base integrada",
     criadoEm: null,
     nome: usuario.name,
     email: usuario.email.toLowerCase(),
@@ -13,8 +13,8 @@ function normalizarClienteApi(usuario) {
     interesse: "Relacionamento comercial",
     prioridade: "Media",
     observacoes: usuario.website
-      ? `Contato importado da API. Site: ${usuario.website}`
-      : "Contato importado da API.",
+      ? `Contato importado da base integrada. Site: ${usuario.website}`
+      : "Contato importado da base integrada.",
   };
 }
 
@@ -22,7 +22,7 @@ export async function buscarClientesApi() {
   const resposta = await fetch(CLIENTES_URL);
 
   if (!resposta.ok) {
-    throw new Error("Nao foi possivel carregar os clientes da API.");
+    throw new Error("Nao foi possivel carregar os contatos importados.");
   }
 
   const usuarios = await resposta.json();

@@ -97,8 +97,7 @@ export default function Cadastro() {
         <span className="eyebrow">Cadastro</span>
         <h1>Novo cliente</h1>
         <p>
-          Preencha os dados abaixo para adicionar um cliente ao estado
-          compartilhado da aplicacao.
+          Preencha os dados para registrar o contato e organizar o atendimento.
         </p>
       </div>
 

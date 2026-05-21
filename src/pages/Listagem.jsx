@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import ClienteCard from "../components/clientes/ClienteCard.jsx";
 import { useClientes } from "../context/ClientesContext.jsx";
 
-const opcoesOrigem = ["Todas", "Cadastro local", "API REST"];
+const opcoesOrigem = ["Todas", "Cadastro local", "Base integrada"];
 const opcoesPrioridade = ["Todas", "Baixa", "Media", "Alta"];
 
 export default function Listagem() {
@@ -45,8 +45,7 @@ export default function Listagem() {
           <span className="eyebrow">Listagem</span>
           <h1>Clientes cadastrados</h1>
           <p>
-            Visualize os dados consumidos da API REST junto aos cadastros feitos
-            no formulario.
+            Acompanhe clientes cadastrados e contatos importados na mesma lista.
           </p>
         </div>
 
@@ -61,7 +60,7 @@ export default function Listagem() {
           </span>
           <span>
             <strong>{totalApi}</strong>
-            API
+            importados
           </span>
         </div>
       </div>
@@ -104,14 +103,14 @@ export default function Listagem() {
 
         <button type="button" onClick={recarregarClientesApi}>
           <RefreshCw size={18} aria-hidden="true" />
-          <span>Atualizar API</span>
+          <span>Atualizar base</span>
         </button>
       </div>
 
       {carregandoApi ? (
         <div className="status-banner">
           <RefreshCw size={18} aria-hidden="true" />
-          Carregando clientes da API REST...
+          Carregando contatos importados...
         </div>
       ) : null}
 

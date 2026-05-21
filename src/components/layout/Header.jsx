@@ -16,7 +16,7 @@ export default function Header() {
         </span>
         <div>
           <strong>Gestao de Clientes</strong>
-          <span>Frontend com React + API REST</span>
+          <span>Contatos e atendimentos</span>
         </div>
       </div>
 
