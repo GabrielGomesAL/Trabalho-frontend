@@ -67,6 +67,7 @@ src/
 - Tarefas de Kanban sugeridas em `docs/kanban.md`.
 - Organizacao Scrum documentada em `docs/scrum.md`.
 - Checklist da rubrica em `docs/rubrica.md`.
+- Issues #1 a #10 usadas para representar as tarefas do fluxo Scrum/Kanban.
 
 ## Rotas
 

@@ -49,3 +49,16 @@ As tarefas da sprint foram organizadas em issues no GitHub:
 - Em desenvolvimento: implementacao por etapas e commits granulares.
 - Revisao: build, auditoria e conferencia dos criterios.
 - Concluido: funcionalidades implementadas e documentadas.
+
+## Incremento entregue
+
+O incremento final e uma aplicacao de gestao de clientes com:
+
+- cadastro de clientes;
+- validacao de campos;
+- listagem com dados locais e contatos importados;
+- filtros de busca;
+- estado compartilhado entre paginas;
+- consumo de API REST;
+- interface responsiva;
+- documentacao de entrega.
