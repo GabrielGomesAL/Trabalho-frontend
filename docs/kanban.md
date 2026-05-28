@@ -1,8 +1,32 @@
 # Kanban do projeto
 
 Use estas tarefas no GitHub Projects. As issues correspondentes ja foram
-criadas no repositorio. A sugestao e criar as colunas:
+criadas no repositorio. O quadro deve usar as colunas:
 `Backlog`, `Em desenvolvimento`, `Revisao` e `Concluido`.
+
+## Fluxo do quadro
+
+| Coluna | Objetivo |
+| --- | --- |
+| Backlog | Guardar requisitos levantados a partir da rubrica. |
+| Em desenvolvimento | Concentrar tarefas sendo implementadas na branch `develop`. |
+| Revisao | Validar build, interface, API, responsividade e documentacao. |
+| Concluido | Reunir as tarefas finalizadas e revisadas. |
+
+## Issues do Kanban
+
+| Issue | Tarefa | Status final | Evidencia principal |
+| --- | --- | --- | --- |
+| #1 | Configurar base do projeto React | Concluido | `package.json`, `vite.config.js`, `src/main.jsx` |
+| #2 | Implementar navegacao entre paginas | Concluido | `src/App.jsx`, `src/components/layout/Header.jsx` |
+| #3 | Criar formulario controlado com validacao | Concluido | `src/pages/Cadastro.jsx`, `src/utils/clienteValidation.js` |
+| #4 | Implementar estado compartilhado entre paginas | Concluido | `src/context/ClientesContext.jsx` |
+| #5 | Integrar API REST e normalizar dados | Concluido | `src/services/clientesApi.js` |
+| #6 | Criar listagem dinamica com filtros | Concluido | `src/pages/Listagem.jsx`, `src/components/clientes/ClienteCard.jsx` |
+| #7 | Aplicar CSS externo e responsividade | Concluido | `src/styles/global.css` |
+| #8 | Documentar projeto, rubrica e Kanban | Concluido | `README.md`, `docs/kanban.md`, `docs/rubrica.md` |
+| #9 | Validar build e preparar entrega final | Concluido | Build de producao e historico de commits |
+| #10 | Sprint de desenvolvimento do trabalho frontend | Concluido | `docs/scrum.md`, `docs/branches.md` |
 
 ## Concluido
 
