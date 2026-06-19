@@ -1,76 +1,87 @@
-# Trabalho Frontend - Gestao de Clientes
+# Nexo Clientes
 
-Aplicacao web em React desenvolvida para simular um fluxo real de frontend com
-navegacao, formulario validado, listagem dinamica, estado compartilhado e
-consumo de API REST.
+Aplicação web em React para cadastrar, consultar e organizar clientes. O
+projeto simula um fluxo real de frontend com roteamento, formulário validado,
+estado compartilhado, persistência local e integração com API REST.
 
 ## Funcionalidades
 
-- Menu de navegacao com as paginas Inicio, Cadastro e Listagem usando React Router.
-- Formulario controlado com `onChange`, `onBlur`, `onSubmit` e `preventDefault()`.
-- Validacao de nome, e-mail, telefone, empresa, cidade, interesse e observacoes.
-- Estado compartilhado com Context API para refletir cadastros na listagem.
-- Persistencia local dos cadastros no `localStorage`.
-- Consumo da API REST `https://jsonplaceholder.typicode.com/users`.
-- Filtros por texto, origem dos dados e prioridade.
-- CSS externo com layout responsivo para desktop e mobile.
+- Navegação entre **Início**, **Cadastro** e **Listagem** com React Router.
+- Formulário totalmente controlado com validação por campo e no envio.
+- Tratamento de `onChange`, `onBlur`, `onSubmit` e `preventDefault()`.
+- Estado global com Context API e persistência versionada no `localStorage`.
+- Novos cadastros refletidos imediatamente na listagem.
+- Consumo da API REST [JSONPlaceholder](https://jsonplaceholder.typicode.com/users).
+- Tratamento visual de carregamento, sucesso, erro, timeout e nova tentativa.
+- Busca dinâmica sem diferença entre letras acentuadas e não acentuadas.
+- Filtros por origem e prioridade.
+- Interface responsiva, acessível e estilizada em CSS externo.
+- Testes automatizados das regras de validação e formatação.
 
 ## Tecnologias
 
-- React
-- Vite
+- React 18
+- Vite 8
 - React Router DOM
 - Context API
 - Fetch API
-- CSS externo
 - Lucide React
+- CSS externo
+- Node.js Test Runner
 
 ## Como executar
+
+Requisito: Node.js 20.19 ou superior.
 
 ```bash
 npm install
 npm run dev
 ```
 
-Depois acesse o endereco mostrado no terminal, normalmente:
+Acesse o endereço exibido no terminal, normalmente
+`http://localhost:5173`.
+
+## Validação do projeto
 
 ```bash
-http://localhost:5173
+# Executa os testes automatizados
+npm test
+
+# Executa testes e build de produção
+npm run check
+
+# Verifica dependências conhecidas como vulneráveis
+npm audit
 ```
 
-Para validar a versao de producao:
-
-```bash
-npm run build
-npm run preview
-```
-
-## Estrutura do projeto
+## Estrutura
 
 ```text
 src/
-  components/
-    clientes/
-    forms/
-    layout/
-  context/
-  pages/
-  services/
-  styles/
-  utils/
+  assets/        # identidade visual
+  components/    # componentes reutilizáveis por domínio
+  context/       # estado global e persistência
+  pages/         # páginas associadas às rotas
+  services/      # integração e normalização da API REST
+  styles/        # sistema visual e responsividade
+  utils/         # validação e formatação
+tests/           # testes automatizados
+docs/            # Kanban, Scrum, branches e rubrica
 ```
-
-## Organizacao para entrega
-
-- Commits separados por etapa de desenvolvimento.
-- Branch de desenvolvimento documentada em `docs/branches.md`.
-- Tarefas de Kanban sugeridas em `docs/kanban.md`.
-- Organizacao Scrum documentada em `docs/scrum.md`.
-- Checklist da rubrica em `docs/rubrica.md`.
-- Issues #1 a #10 usadas para representar as tarefas do fluxo Scrum/Kanban.
 
 ## Rotas
 
-- `/` - Inicio com resumo do projeto e indicadores.
-- `/cadastro` - Formulario para cadastrar novo cliente.
-- `/listagem` - Lista dados da API REST e cadastros locais.
+| Rota        | Página   | Responsabilidade                                |
+| ----------- | -------- | ----------------------------------------------- |
+| `/`         | Início   | Apresentar os recursos e o resumo da base.      |
+| `/cadastro` | Cadastro | Validar e registrar um novo cliente.            |
+| `/listagem` | Listagem | Exibir, buscar e filtrar dados locais e da API. |
+
+## Organização da entrega
+
+- Commits progressivos e descritos por tipo (`feat`, `fix`, `docs`, `chore`).
+- Branch `develop` para desenvolvimento e `main` para a versão estável.
+- Issues #1 a #10 representando o backlog da sprint.
+- Fluxo Kanban documentado em [`docs/kanban.md`](docs/kanban.md).
+- Scrum e Definition of Done em [`docs/scrum.md`](docs/scrum.md).
+- Evidências da rubrica em [`docs/rubrica.md`](docs/rubrica.md).

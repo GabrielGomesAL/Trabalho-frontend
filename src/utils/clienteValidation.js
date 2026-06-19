@@ -5,7 +5,7 @@ export const clienteInicial = {
   empresa: "",
   cidade: "",
   interesse: "",
-  prioridade: "Media",
+  prioridade: "Média",
   observacoes: "",
 };
 
@@ -42,7 +42,7 @@ export function validarCliente(valores) {
   }
 
   if (!emailRegex.test(valores.email.trim())) {
-    erros.email = "Informe um e-mail valido.";
+    erros.email = "Informe um e-mail válido.";
   }
 
   if (telefoneLimpo.length < 10) {
@@ -58,12 +58,16 @@ export function validarCliente(valores) {
   }
 
   if (!valores.interesse) {
-    erros.interesse = "Selecione uma area de interesse.";
+    erros.interesse = "Selecione uma área de interesse.";
   }
 
   if (valores.observacoes.length > 180) {
-    erros.observacoes = "Use no maximo 180 caracteres.";
+    erros.observacoes = "Use no máximo 180 caracteres.";
   }
 
   return erros;
+}
+
+export function validarCampo(nomeCampo, valores) {
+  return validarCliente(valores)[nomeCampo];
 }

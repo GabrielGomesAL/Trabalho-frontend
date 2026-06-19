@@ -1,31 +1,26 @@
-# Estrategia de branches
+# Estratégia de branches
 
-## Branch principal de desenvolvimento
+## Branch de desenvolvimento
 
-A branch usada para concentrar os commits de desenvolvimento do projeto e:
+A branch `develop` concentra o histórico progressivo do trabalho:
 
-```text
-develop
-```
+- configuração inicial do React;
+- navegação entre páginas;
+- formulário controlado e validação;
+- estado compartilhado e persistência;
+- integração com API REST;
+- listagem dinâmica e filtros;
+- interface responsiva;
+- documentação e validação final.
 
-Ela contem o historico progressivo do trabalho, com commits separados por etapa:
+## Branch estável
 
-- configuracao inicial do React;
-- navegacao entre paginas;
-- formulario controlado com validacao;
-- estado compartilhado;
-- integracao com API REST;
-- listagem dinamica;
-- documentacao;
-- validacao final da entrega.
-
-## Branch estavel
-
-A branch `main` representa a versao estavel publicada no repositorio.
+A branch `main` representa a versão estável entregue no repositório.
 
 ## Fluxo usado
 
-1. As tarefas foram organizadas em issues e documentos de Kanban/Scrum.
-2. A implementacao foi feita em commits granulares.
-3. A branch `develop` concentra o historico de desenvolvimento.
-4. O projeto foi validado com build de producao antes da entrega.
+1. As tarefas foram organizadas em issues e no Kanban.
+2. A implementação foi dividida em commits coerentes.
+3. A branch `develop` concentrou o desenvolvimento.
+4. Pull requests levaram as versões revisadas para `main`.
+5. Testes e build de produção validaram a entrega final.
