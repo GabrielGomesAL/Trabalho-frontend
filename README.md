@@ -11,6 +11,8 @@ estado compartilhado, persistência local e integração com API REST.
 - Tratamento de `onChange`, `onBlur`, `onSubmit` e `preventDefault()`.
 - Estado global com Context API e persistência versionada no `localStorage`.
 - Novos cadastros refletidos imediatamente na listagem.
+- Edição e exclusão de cadastros locais com validação e confirmação.
+- Contatos vindos da API protegidos como dados somente leitura.
 - Consumo da API REST [JSONPlaceholder](https://jsonplaceholder.typicode.com/users).
 - Tratamento visual de carregamento, sucesso, erro, timeout e nova tentativa.
 - Busca dinâmica sem diferença entre letras acentuadas e não acentuadas.
@@ -81,7 +83,7 @@ docs/            # Kanban, Scrum, branches e rubrica
 
 - Commits progressivos e descritos por tipo (`feat`, `fix`, `docs`, `chore`).
 - Branch `develop` para desenvolvimento e `main` para a versão estável.
-- Issues #1 a #10 representando o backlog da sprint.
+- Issues #1 a #10 e #15 representando o backlog e a evolução da sprint.
 - Fluxo Kanban documentado em [`docs/kanban.md`](docs/kanban.md).
 - Scrum e Definition of Done em [`docs/scrum.md`](docs/scrum.md).
 - Evidências da rubrica em [`docs/rubrica.md`](docs/rubrica.md).
