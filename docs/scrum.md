@@ -14,12 +14,13 @@ responsiva.
 - Compartilhar e persistir o estado entre páginas.
 - Consumir e normalizar dados de uma API REST.
 - Renderizar a listagem com busca e filtros.
+- Permitir edição e exclusão segura dos cadastros locais.
 - Aplicar CSS externo, acessibilidade e responsividade.
 - Documentar execução, Kanban, branches e rubrica.
 
 ## Sprint Backlog
 
-As issues #1 a #10 representam as tarefas da sprint e correspondem às
+As issues #1 a #10 e #15 representam as tarefas e evoluções da sprint e correspondem às
 evidências registradas em `docs/kanban.md`.
 
 ## Definition of Done

@@ -3,6 +3,10 @@ import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import FormField from "../components/forms/FormField.jsx";
 import FormProgress from "../components/forms/FormProgress.jsx";
+import {
+  OPCOES_INTERESSE,
+  OPCOES_PRIORIDADE,
+} from "../constants/clienteOptions.js";
 import { useClientes } from "../context/ClientesContext.jsx";
 import {
   clienteInicial,
@@ -10,15 +14,6 @@ import {
   validarCampo,
   validarCliente,
 } from "../utils/clienteValidation.js";
-
-const opcoesInteresse = [
-  "Consultoria",
-  "Suporte técnico",
-  "Desenvolvimento web",
-  "Treinamento",
-];
-
-const opcoesPrioridade = ["Baixa", "Média", "Alta"];
 
 export default function Cadastro() {
   const { adicionarCliente } = useClientes();
@@ -223,7 +218,7 @@ export default function Cadastro() {
                 onChange={atualizarCampo}
               >
                 <option value="">Selecione uma opção</option>
-                {opcoesInteresse.map((opcao) => (
+                {OPCOES_INTERESSE.map((opcao) => (
                   <option key={opcao} value={opcao}>
                     {opcao}
                   </option>
@@ -235,7 +230,7 @@ export default function Cadastro() {
           <fieldset className="priority-fieldset">
             <legend>Prioridade de atendimento</legend>
             <div className="priority-options">
-              {opcoesPrioridade.map((opcao) => (
+              {OPCOES_PRIORIDADE.map((opcao) => (
                 <label key={opcao} className="radio-card">
                   <input
                     type="radio"

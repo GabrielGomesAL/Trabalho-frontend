@@ -1,4 +1,12 @@
-import { Building2, Mail, MapPin, Phone } from "lucide-react";
+import {
+  Building2,
+  Edit3,
+  LockKeyhole,
+  Mail,
+  MapPin,
+  Phone,
+  Trash2,
+} from "lucide-react";
 
 function obterIniciais(nome) {
   return nome
@@ -17,7 +25,9 @@ function classePrioridade(prioridade) {
     .toLowerCase();
 }
 
-export default function ClienteRow({ cliente }) {
+export default function ClienteRow({ cliente, onEditar, onExcluir }) {
+  const cadastroLocal = cliente.origem === "Cadastro local";
+
   return (
     <tr>
       <td data-label="Cliente">
@@ -60,6 +70,35 @@ export default function ClienteRow({ cliente }) {
         <span className="phone-value">
           <Phone size={14} aria-hidden="true" /> {cliente.telefone}
         </span>
+      </td>
+      <td data-label="Ações" className="actions-cell">
+        {cadastroLocal ? (
+          <div className="row-actions">
+            <button
+              className="row-action row-action-edit"
+              type="button"
+              onClick={() => onEditar(cliente)}
+              aria-label={`Editar ${cliente.nome}`}
+              title="Editar cliente"
+            >
+              <Edit3 size={16} aria-hidden="true" />
+            </button>
+            <button
+              className="row-action row-action-delete"
+              type="button"
+              onClick={() => onExcluir(cliente)}
+              aria-label={`Excluir ${cliente.nome}`}
+              title="Excluir cliente"
+            >
+              <Trash2 size={16} aria-hidden="true" />
+            </button>
+          </div>
+        ) : (
+          <span className="read-only-status" title="Dados fornecidos pela API">
+            <LockKeyhole size={14} aria-hidden="true" />
+            Somente leitura
+          </span>
+        )}
       </td>
     </tr>
   );

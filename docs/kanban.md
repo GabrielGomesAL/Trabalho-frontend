@@ -26,6 +26,7 @@ colunas `Backlog`, `Em desenvolvimento`, `Revisão` e `Concluído`.
 | #8    | Documentar projeto, rubrica e Kanban           | Concluído    | `README.md`, pasta `docs`                                          |
 | #9    | Validar e preparar a entrega final             | Concluído    | Testes, build e auditoria                                          |
 | #10   | Executar a sprint do trabalho frontend         | Concluído    | `docs/scrum.md`, `docs/branches.md`                                |
+| #15   | Editar e excluir clientes locais               | Concluído    | Modais, Context API, persistência e testes                         |
 
 ## Definition of Done do quadro
 

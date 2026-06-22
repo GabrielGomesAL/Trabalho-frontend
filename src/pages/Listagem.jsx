@@ -6,13 +6,16 @@ import {
   Search,
   UsersRound,
 } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import ClienteRow from "../components/clientes/ClienteRow.jsx";
+import ConfirmarExclusaoModal from "../components/clientes/ConfirmarExclusaoModal.jsx";
+import EditarClienteModal from "../components/clientes/EditarClienteModal.jsx";
+import { OPCOES_PRIORIDADE } from "../constants/clienteOptions.js";
 import { useClientes } from "../context/ClientesContext.jsx";
 
 const opcoesOrigem = ["Todas", "Cadastro local", "Base integrada"];
-const opcoesPrioridade = ["Todas", "Baixa", "Média", "Alta"];
+const opcoesPrioridade = ["Todas", ...OPCOES_PRIORIDADE];
 
 function normalizarTexto(valor) {
   return valor
@@ -34,7 +37,9 @@ export default function Listagem() {
   const {
     carregandoApi,
     clientes,
+    editarCliente,
     erroApi,
+    excluirCliente,
     recarregarClientesApi,
     totalApi,
     totalCadastrados,
@@ -43,6 +48,9 @@ export default function Listagem() {
   const [busca, setBusca] = useState("");
   const [origem, setOrigem] = useState("Todas");
   const [prioridade, setPrioridade] = useState("Todas");
+  const [clienteEmEdicao, setClienteEmEdicao] = useState(null);
+  const [clienteParaExcluir, setClienteParaExcluir] = useState(null);
+  const [feedbackAcao, setFeedbackAcao] = useState("");
 
   const clientesFiltrados = useMemo(() => {
     const termo = normalizarTexto(busca.trim());
@@ -71,6 +79,42 @@ export default function Listagem() {
     setOrigem("Todas");
     setPrioridade("Todas");
   }
+
+  const abrirEdicao = useCallback((cliente) => {
+    setFeedbackAcao("");
+    setClienteEmEdicao(cliente);
+  }, []);
+
+  const fecharEdicao = useCallback(() => {
+    setClienteEmEdicao(null);
+  }, []);
+
+  const salvarEdicao = useCallback(
+    (id, dadosAtualizados) => {
+      editarCliente(id, dadosAtualizados);
+      setClienteEmEdicao(null);
+      setFeedbackAcao(`Cliente ${dadosAtualizados.nome} atualizado com sucesso.`);
+    },
+    [editarCliente],
+  );
+
+  const abrirExclusao = useCallback((cliente) => {
+    setFeedbackAcao("");
+    setClienteParaExcluir(cliente);
+  }, []);
+
+  const fecharExclusao = useCallback(() => {
+    setClienteParaExcluir(null);
+  }, []);
+
+  const confirmarExclusao = useCallback(
+    (cliente) => {
+      excluirCliente(cliente.id);
+      setClienteParaExcluir(null);
+      setFeedbackAcao(`Cliente ${cliente.nome} excluído com sucesso.`);
+    },
+    [excluirCliente],
+  );
 
   return (
     <section
@@ -181,6 +225,13 @@ export default function Listagem() {
         </div>
       ) : null}
 
+      {feedbackAcao ? (
+        <div className="status-banner status-success action-feedback" role="status">
+          <CheckCircle2 size={18} aria-hidden="true" />
+          {feedbackAcao}
+        </div>
+      ) : null}
+
       {clientesFiltrados.length > 0 ? (
         <div className="results-region" aria-live="polite">
           <div className="results-heading">
@@ -210,11 +261,17 @@ export default function Listagem() {
                   <th scope="col">Origem</th>
                   <th scope="col">Prioridade</th>
                   <th scope="col">Telefone</th>
+                  <th scope="col">Ações</th>
                 </tr>
               </thead>
               <tbody>
                 {clientesFiltrados.map((cliente) => (
-                  <ClienteRow key={cliente.id} cliente={cliente} />
+                  <ClienteRow
+                    key={cliente.id}
+                    cliente={cliente}
+                    onEditar={abrirEdicao}
+                    onExcluir={abrirExclusao}
+                  />
                 ))}
               </tbody>
             </table>
@@ -244,6 +301,22 @@ export default function Listagem() {
           )}
         </div>
       )}
+
+      {clienteEmEdicao ? (
+        <EditarClienteModal
+          cliente={clienteEmEdicao}
+          onClose={fecharEdicao}
+          onSave={salvarEdicao}
+        />
+      ) : null}
+
+      {clienteParaExcluir ? (
+        <ConfirmarExclusaoModal
+          cliente={clienteParaExcluir}
+          onClose={fecharExclusao}
+          onConfirm={confirmarExclusao}
+        />
+      ) : null}
     </section>
   );
 }

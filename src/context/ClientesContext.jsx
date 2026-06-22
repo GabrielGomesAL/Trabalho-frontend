@@ -8,6 +8,10 @@ import {
   useState,
 } from "react";
 import { buscarClientesApi } from "../services/clientesApi.js";
+import {
+  atualizarClienteLocal,
+  removerClienteLocal,
+} from "../utils/clientesState.js";
 
 const ClientesContext = createContext(null);
 const STORAGE_KEY = "gestao-clientes-cadastros";
@@ -116,6 +120,21 @@ export function ClientesProvider({ children }) {
     return novoCliente;
   }, []);
 
+  const editarCliente = useCallback((id, dadosCliente) => {
+    setClientesCadastrados((clientesAtuais) =>
+      atualizarClienteLocal(clientesAtuais, id, {
+        ...dadosCliente,
+        atualizadoEm: new Date().toISOString(),
+      }),
+    );
+  }, []);
+
+  const excluirCliente = useCallback((id) => {
+    setClientesCadastrados((clientesAtuais) =>
+      removerClienteLocal(clientesAtuais, id),
+    );
+  }, []);
+
   const clientes = useMemo(
     () => [...clientesCadastrados, ...clientesApi],
     [clientesApi, clientesCadastrados],
@@ -132,6 +151,8 @@ export function ClientesProvider({ children }) {
       totalCadastrados: clientesCadastrados.length,
       totalApi: clientesApi.length,
       adicionarCliente,
+      editarCliente,
+      excluirCliente,
       ultimaAtualizacao,
     }),
     [
@@ -141,6 +162,8 @@ export function ClientesProvider({ children }) {
       clientesApi,
       clientesCadastrados,
       erroApi,
+      editarCliente,
+      excluirCliente,
       statusApi,
       ultimaAtualizacao,
     ],

@@ -26,6 +26,8 @@ Evidências:
 - Navegação com React Router.
 - Estado compartilhado com Context API.
 - Dados cadastrados aparecem imediatamente na listagem.
+- Cadastros locais podem ser editados e excluídos com persistência automática.
+- Dados da API permanecem protegidos como somente leitura.
 - API REST consumida com `fetch`.
 - Estados de carregamento, sucesso, erro, timeout e nova tentativa tratados.
 - Requisições anteriores são canceladas para evitar condições de corrida.
@@ -38,6 +40,8 @@ Evidências:
 - `src/context/ClientesContext.jsx`
 - `src/services/clientesApi.js`
 - `src/pages/Listagem.jsx`
+- `src/components/clientes/EditarClienteModal.jsx`
+- `src/components/clientes/ConfirmarExclusaoModal.jsx`
 
 ## Formulário e eventos
 
@@ -73,8 +77,8 @@ Evidências:
 
 ## Qualidade e validação técnica
 
-- Testes automatizados para telefone, campos obrigatórios, cadastro válido e
-  limite de observações.
+- Testes automatizados para telefone, campos obrigatórios, cadastro válido,
+  limite de observações, edição e exclusão no estado compartilhado.
 - Build de produção executado sem erros.
 - Auditoria de dependências sem vulnerabilidades conhecidas.
 - Fluxo completo validado no navegador: formulário inválido, cadastro válido,
@@ -83,6 +87,7 @@ Evidências:
 Evidências:
 
 - `tests/clienteValidation.test.js`
+- `tests/clientesState.test.js`
 - Scripts `test`, `build` e `check` no `package.json`.
 
 ## GitHub, commits e Kanban
@@ -98,6 +103,6 @@ Evidências:
 
 - Branch `develop` publicada no GitHub.
 - Branch `main` usada como versao estavel.
-- Issues #1 a #10 usadas como tarefas da sprint.
+- Issues #1 a #10 e #15 usadas como tarefas e evolução da sprint.
 - Pull requests de `develop` para `main`.
 - Documentação em `README.md`, `docs/kanban.md`, `docs/scrum.md` e `docs/branches.md`.
